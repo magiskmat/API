@@ -10,7 +10,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://newsapi.org/v2/everything?q=bitcoin&from=2019-03-04&sortBy=publishedAt&apiKey=246b9ea9ce654437acefef97d7e29302';
+    const url = 'https://newsapi.org/v2/everything?domains=wsj.com&apiKey=246b9ea9ce654437acefef97d7e29302';
 
     fetch(url)
       .then((response) => {
@@ -26,15 +26,15 @@ class News extends Component {
 
   renderItems() {
     return this.state.news.map((item) => (
-      <NewSingle key={item.id} item={item} />
+      <NewSingle key={item.url} item={item} />
     ));
   }
 
   render() {
     return (
-      <ul>
+      <div className="rov">
         {this.renderItems()}
-      </ul>
+      </div>
     );
   }
 }
